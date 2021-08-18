@@ -1,0 +1,21 @@
+Angular
+---------------
+    Module- AppModule-rootModules
+            - module aconsists of components and services (atleaset one component required -APPComponent)
+    
+        -Angular app --> one or more rootModules
+        -Module --> One or more components and services
+        -component --> html + Class
+        -Service --> Busines logic
+        -Modules interact and ultimately render the view in the browser
+
+Component
+---------
+    Template
+        - View using html
+    Class
+        - contains code using TypeScript--> data and methods
+    Metadata
+        - informatio- defined using decorator
+
+        selector - custom html tag to render the component

@@ -1,0 +1,40 @@
+npm with github
+===============
+                - npm install https://github.com/myproject      // using git url
+                - npm install (url of the private repo)         // using private url
+                - npm install (GitHub Gist id)          // installingfrom using gist id
+
+installing from folder
+======================
+                - some project do not want to publish to npm, so they use their private repository to store, but they still want to allows to use the packeges and components to be used by other developers and let them to install using npm and use as regular npm packages, the graet way to do that is as follows.
+                - npm i (path of the packages ../path)
+searching for packages
+======================
+                - https://www.npmjs.com/         //use this link for searching npm packages
+                - npm.js/packageName
+                - npm search underscore         //used to search string underscore
+
+pruning
+=======
+                - sometimes we install packeges which we do not need to install or we do not need them to go before production, we can use below sorts of command to remove them.
+                - npm list --depth 0            // use this command to display list of installed packages, this will show some err! extraneous on perticular packege if instlled and not mentioned in package.json file, we can clean them by using below commands
+                - npm remove
+                - npm prune 
+                - npm prune --production                // this will remove all the dev dependancies and leave your packege ready for production
+
+npm repo
+========
+                - npm repo underscore           //this will open repositoryfolder in browser
+
+using npx
+=========
+                - npx is for runing utility for packages
+
+auditing
+========
+                - first run npm i cmd like below to find vulnerabilities
+                        - npm i express@4.1.x
+                - then use audit cmd to fix
+                        - npm audit 
+                        - npm audit fix         // auto fix
+

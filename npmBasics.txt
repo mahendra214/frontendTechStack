@@ -1,0 +1,148 @@
+List of initial commands
+================
+    npm -v
+    npm help
+    npm install -h
+        --  this gives differnent ways we can use npm install command
+    npm help config
+        --  this helps to find npm config documentation
+
+
+
+creating package.json
+============
+    -   manage dependancies for differnent frameworks like express and its version
+    -   helps to write scripts for initial build
+    creating package.json file using commands
+        -   npm init
+        -   npm init --yes
+                -   it will create with default data by packagemanger
+        -   npm config set init-author-name "Mahendra"
+                -   it will set default author name to Mahendra
+        -   npm set init-license "lti-mahendra"
+                -   it will set default license name to lti-mahendra
+        -   then we can use 
+            npm init --yes, it will auto create with default author and license details
+        -   commands for getting npm default values
+                -   npm config get init-author-name
+                -   npm get init-author-name
+                -   npm config get init-license
+                -   npm get init-license
+        - deleting default values
+                -   npm config delete init-license
+                -   npm config delete init-author-name
+installing local packages
+===========================
+        - npm install <packageName> // this command helps to install any named packegae dependances and create a folde in project as follows -> node_modules--> packageName
+        - npm install moment        // this an exmplae of installing moment framework dependancies
+    note: as we know package.json contains our track to the project, while if we run the above command -->  we can observe that it is not providing any entry to package,json file, so to avoid this issue, we can use below command to install and register the package in pacage.json file at same time
+        - npm install moment --save     // this will install and register moment entry in pacage.json dependancies array
+    
+    for dev environment not for production environment,  we can use below command--->
+        -   npm install lodash --save-dev  // this will register the pacage as devDependancies
+
+uninstalling a local packages
+=============================
+        - npm uninstall moment         //this will uninstall moment package, but will not remove package.json entry, so we need to use below command
+        -   npm uninstall moment --save
+        -   npm uninstall lodash --save-dev
+
+installing global packages
+==========================
+        - npm install moment -g        // if we cehck it will not make an enrty in package.json file and also there will not be any node_modules folder in the project
+    note: we will learn the globally installed packages location and entry later stages
+
+uninstalling global packages
+==========================
+        - npm uninstall moment -g
+        - npm remove moment -g
+        - npm rm moment -g
+        - npm un moment -g
+
+Listing installed packages(globally./locally)
+=============================================
+        - npm list              //locally installed package List
+        - npm list --depth 1
+        - npm list --depth 0
+        - npm list -g           //globally installed package list
+        - npm list -g --depth 1
+        - npm list -g --depth 0
+        - npm list --global           //globally installed package list
+        - npm list --global --depth 1
+        - npm list --global --depth 0
+
+npm versioning
+===============
+        - symantic versioning
+            - 4.16.1
+            - 4 <--major version number(Break in existing functionality- like abgular js to angular)
+            - 16 <--minor version number(New feature which doenot break any functionality)
+            - 1 <--patch version number(bug fix / performance impovement)
+        - installing versioning
+            - we uses @ symbol tomention verion while installation
+            - eg. npm install lodash@3.3.0
+            - eg. npm install lodash@3.3    // when we do not mention the patch version, it will install the latest patch version of 3.3.....
+            - - eg. npm install lodash@3        // give me the latest version packege with latest minor and patch version
+
+
+installing from package.json -- what is npm install
+===================================================
+        - when we import any project from the gihub or any source repo, the fisrt line of instruction is to run npm install command-- this is becuase , running npm install cmd helps to download and install the list of dependancies mention in the package.json file locally in to the project folder 
+        - npm instal will first create node_modules folder --> then create the respective dependacy folder
+        
+how the version might be specified in the package.json
+======================================================
+        - "lodash": "^4.14.1"
+                -- this (^) in above declaration shows that while hitting npm install command, dependacy download should stick to major versioning unchanged and installing the updated minor and patch version.
+        - "lodash": "~4.14.1"
+                -- this (~) in above declaration shows that while hitting npm install command, dependacy download should stick to major and minor versioning unchanged, and installing the updated patch version.
+        - "lodash": "4.14.1"   // if we do not mention any symbol, then it will install only the mentioned version
+        - "lodash": "*"     // this helps to download always the complete latest version
+
+Updating packages
+=================
+        - npm update lodash --save     // this will update the dependancy version to latest
+        - npm update --dev --save-dev       // this will update the devDependancies
+        - npm update        // update all the package locally
+        - npm update -g       // update all the packege globally
+        - npm update -g gulp        // update perticular in globally
+        - npm install npm@latest -g     // to update npm to the latest version -- make sure to run cmd as admin access
+
+Removing unnecessary dependancies
+=================================
+        - npm prune
+
+important commands
+==================
+        - npm init --yes
+        - npm init -y
+
+        - npm i lodash
+
+        - npm i lodash --save
+        - npm i lodash -S
+
+        - npm install lodash --save-dev
+        - npm i lodash -D
+
+Shorthands and Other CLI Niceties
+=================================
+        visit below link
+        - https://docs.npmjs.com/cli/v7/using-npm/config
+
+npm scripts
+===========
+        - craete one file with name app.js--> write console.log('npm test script')--> then type node app.js in terminal, it will run and log the value in console.
+
+    now follow below steps to use script inside package.json file to run app.js file automatically
+    ---------------------------------------------------------------------------------------------
+              // sample --> ("test": "echo \"Error: no test specified\" && exit 1")
+        - go to package.json--  replace "test" string in scripts with "start" and replace complete string @ right side and write "node - app.js"
+        - ["scripts": {
+            "start": "node app.js"
+            },]
+        - now the entry point of the project will be app.js file
+
+
+
+
